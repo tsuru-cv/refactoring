@@ -1,6 +1,3 @@
-/**
- * 商品クラス
- */
 export default class Product {
   public readonly id: number;
   public readonly name: string;

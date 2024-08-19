@@ -1,11 +1,16 @@
 import ShoppingCart from "./ShoppingCart";
 
 export default class DeliveryCharge {
+  private readonly CHARGE_FREE_THRESHOLD = 2000;
+  private readonly PAY_CHARGE = 500;
+  private readonly CHARGE_FREE = 0;
+
   public readonly amount: number;
 
   constructor(shoppingCart: ShoppingCart) {
-    const totalPrice =
-      shoppingCart.products[0].price + shoppingCart.products[1].price;
-    this.amount = totalPrice < 2000 ? 500 : 0;
+    this.amount =
+      shoppingCart.totalPrice() < this.CHARGE_FREE_THRESHOLD
+        ? this.PAY_CHARGE
+        : this.CHARGE_FREE;
   }
 }
