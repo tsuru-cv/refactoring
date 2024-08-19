@@ -4,7 +4,7 @@ import Product from "./Product";
  * 買い物かご
  */
 export default class ShoppingCart {
-  private readonly products: Product[];
+  public readonly products: Product[];
 
   constructor(products?: Product[]) {
     this.products = products ?? [];
